@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-pookie-white text-pookie-text overflow-x-hidden antialiased selection:bg-pookie-blue selection:text-white;
+    font-family: 'SF Pro Display', 'SF Pro Text', 'Inter', system-ui, sans-serif;
+    background-color: #ffffff;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'SF Pro Display', 'SF Pro Text', 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-pookie-text font-medium text-sm tracking-tight transition-colors duration-300;
+  }
+  
+  .nav-link:hover {
+    @apply text-pookie-blue;
+  }
+  
+  .glass-nav {
+    @apply bg-white/90 backdrop-blur-md border-b border-pookie-border shadow-sm;
+  }
+  
+  .glass-card {
+    @apply bg-white border border-pookie-border rounded-2xl p-8 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)];
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-10 py-4 bg-pookie-black text-white font-semibold rounded-xl text-sm tracking-tight transition-all duration-300 hover:bg-pookie-blue hover:-translate-y-1 hover:shadow-[0_20px_40px_-10px_rgba(0,102,255,0.3)] active:scale-95 uppercase;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-10 py-4 bg-white text-pookie-black border border-pookie-border font-semibold rounded-xl text-sm tracking-tight transition-all duration-300 hover:bg-pookie-gray hover:-translate-y-1 active:scale-95 uppercase;
+  }
+  
+  .section-title {
+    @apply text-display-sm font-display font-bold mb-8 text-center tracking-tight;
+  }
+  
+  .section-subtitle {
+    @apply text-body-sm text-pookie-text-muted mb-16 text-center max-w-2xl mx-auto font-light;
+  }
+  
+  .section-label {
+    @apply inline-flex items-center gap-2 px-5 py-2 rounded-full bg-pookie-blue-light border border-pookie-blue/20 text-pookie-blue text-[10px] font-bold tracking-widest uppercase mb-8 backdrop-blur-sm;
+  }
+  
+  .label-dot {
+    @apply w-2 h-2 rounded-full bg-pookie-blue animate-pulse;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  
+  .hover-lift {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-pookie-blue rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-pookie-blue-dark;
+}
+
+/* Focus styles */
+button:focus-visible, a:focus-visible {
+  outline: 2px solid #0066ff;
+  outline-offset: 2px;
+}
